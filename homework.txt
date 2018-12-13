@@ -1,0 +1,30 @@
+﻿1.select count(*)  from teacher where t_name like '李%';
+2.select count(*) ,s_sex from student group by s_sex;
+3.select count(*) ,s_name from student group by s_name having count(*)>1;
+4.select * from student where year(s_age) = 1981;
+5.select s_id,avg(score) from sc group by s_id having avg(score) >60;
+6.
+7.select count(*)  ,s_id  from sc group by s_id having count(*) >=2;
+8.select c_id ',max(score) ,min(score)  from sc group by c_id;
+9.select count(*) '选修人数',c_id '课程号' from sc group by c_id order by count(*) desc,c_id asc; 
+
+10.select * from emp where now()-year(hiredate) > 38;
+11.select * from emp where month(hiredate) = month(now());
+12.select * from emp where date_add(month(now()), interval 1 month) = month(hiredate) ;
+13.select * from emp where month(hiredate)>6;
+14.方式1：
+select empno, ename from emp where length(ename) =4;
+方式2：
+select empno, ename from emp where ename like '____';
+15.select min(sal),job from emp group by job;
+16.select count(*) from emp group by hiredate having year(hiredate)=1980;
+17.select max(sal),deptno from emp group by deptno;
+18.查询select max(sal),deptno,job from emp group by deptno,job;
+19.查询各部门的总工资和平均工资
+select sum(sal) '总工资',avg(sal) '平均工资' from emp group by deptno;
+20.select avg(sal) '平均工资',deptno from emp group by deptno having deptno=10 or deptno=20;
+21.select deptno,avg(sal) from emp group by deptno having avg(sal) >=2000;
+22.select count(*) '经理人数',from emp group by job having job='MANAGER';
+23.select * from emp order by sal desc limit 3;
+24.select * from emp order by sal desc limit 6,10;
+
